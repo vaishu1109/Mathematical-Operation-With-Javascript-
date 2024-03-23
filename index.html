@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mathematical Operation</title>
+    <style>
+      body {
+        background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+        min-height: 100vh;
+      }
+      .container {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        align-items: center;
+        margin: 30px auto;
+        padding: 10px;
+        border-radius: 2px;
+      }
+      .heading{
+        font-size: 30px;
+      }
+      .input-box {
+        width: 50%;
+        margin: 5px;
+        padding: 5px;
+      }
+      .btn{
+        border: none;
+        border: 1px solid black;
+        background-color: white;
+        border-radius: 5px;
+        margin: 10px auto;
+        cursor: pointer;
+        padding: 5px;
+      }
+      .btn:hover{
+        background-color: black;
+        color: white;
+        transition: 0.2s;
+        border: 1px solid white;
+      }
+      #result{
+        margin-top: 10px;
+      }
+      @media  screen and (max-width:600px) {
+        .container{
+          width: 80%;
+        }
+        .heading{
+        font-size: 20px;
+        text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="heading">Area of Rectangle Calculator</h1>
+      <input type="text" placeholder="Length" class="input-box" id="length"/>
+      <input type="text" placeholder="Width" class="input-box" id="width"/>
+      <span id="result" ></span>
+      <div>
+        <button class="btn" onclick="area()">Submit</button>
+        <button class="btn" onclick="reset()">Reset</button>
+      </div>
+    </div>
+    <script>
+      function area(){
+        const length=parseInt(document.getElementById("length").value);
+        const width=parseInt(document.getElementById("width").value);
+        const area=length*width;
+        document.getElementById("result").innerHTML=`Area of Rectangle is :${area}`;
+      }
+      function reset(){
+        const length=document.getElementById("length");
+        const width=document.getElementById("width");
+        length.value="";
+        width.value="";
+        document.getElementById("result").innerText="";
+      }
+    </script>
+  </body>
+</html>
