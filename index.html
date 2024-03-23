@@ -13,73 +13,92 @@
         background-color: white;
         display: flex;
         flex-direction: column;
-        width: 400px;
+        width: 500px;
         align-items: center;
         margin: 30px auto;
-        padding: 10px;
-        border-radius: 2px;
+        padding: 20px;
+        border-radius: 2px; 
       }
-      .heading{
-        font-size: 30px;
+      .heading {
+        font-size: 25px;
       }
       .input-box {
         width: 50%;
         margin: 5px;
         padding: 5px;
       }
-      .btn{
+      .btn {
         border: none;
         border: 1px solid black;
         background-color: white;
         border-radius: 5px;
         margin: 10px auto;
         cursor: pointer;
-        padding: 5px;
+        padding: 10px;
+        margin: 5px;
       }
-      .btn:hover{
+      .btn:hover {
         background-color: black;
         color: white;
         transition: 0.2s;
         border: 1px solid white;
       }
-      #result{
+      #result {
         margin-top: 10px;
+        margin-bottom: 10px;
       }
-      @media  screen and (max-width:600px) {
-        .container{
+      @media screen and (max-width: 600px) {
+        .container {
           width: 80%;
         }
-        .heading{
-        font-size: 20px;
-        text-align: center;
+        .heading {
+          font-size: 20px;
+          text-align: center;
         }
+        .btn {
+        margin: 10px auto;
+        cursor: pointer;
+        padding: 5px;
+        margin: 3px;
+      }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1 class="heading">Area of Rectangle Calculator</h1>
-      <input type="text" placeholder="Length" class="input-box" id="length"/>
-      <input type="text" placeholder="Width" class="input-box" id="width"/>
-      <span id="result" ></span>
+      <h1 class="heading">Area and Perimeter of Rectangle Calculator</h1>
+      <input type="text" placeholder="Length" class="input-box" id="length" />
+      <input type="text" placeholder="Width" class="input-box" id="width" />
+      <span id="result"></span>
       <div>
-        <button class="btn" onclick="area()">Submit</button>
+        <button class="btn" onclick="area()">Area</button>
+        <button class="btn" onclick="perimeter()">Perimeter</button>
         <button class="btn" onclick="reset()">Reset</button>
       </div>
     </div>
     <script>
-      function area(){
-        const length=parseInt(document.getElementById("length").value);
-        const width=parseInt(document.getElementById("width").value);
-        const area=length*width;
-        document.getElementById("result").innerHTML=`Area of Rectangle is :${area}`;
+      function area() {
+        const length = parseInt(document.getElementById("length").value);
+        const width = parseInt(document.getElementById("width").value);
+        const area = length * width;
+        document.getElementById(
+          "result"
+        ).innerHTML = `Area of Rectangle is :${area}`;
       }
-      function reset(){
-        const length=document.getElementById("length");
-        const width=document.getElementById("width");
-        length.value="";
-        width.value="";
-        document.getElementById("result").innerText="";
+      function perimeter() {
+        const length = parseInt(document.getElementById("length").value);
+        const width = parseInt(document.getElementById("width").value);
+        const perimeter = length + width;
+        document.getElementById(
+          "result"
+        ).innerHTML = `Perimeter of Rectangle is :${perimeter * 2}`;
+      }
+      function reset() {
+        const length = document.getElementById("length");
+        const width = document.getElementById("width");
+        length.value = "";
+        width.value = "";
+        document.getElementById("result").innerText = "";
       }
     </script>
   </body>
